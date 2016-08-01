@@ -1,0 +1,86 @@
+.dropazing-button{
+	margin-bottom:10px;
+}
+.dropazing-files{
+	border:1px dashed #ccc;
+	border-radius:8px;
+	background:#eee;
+	color:#999;
+	padding:20px;
+	margin-bottom:10px;
+	text-align:center;
+	font-size:1.4em;
+}
+.dropazing-active .dropazing-files{
+	display:block;
+}
+.hover .dropazing-files {
+	border:1px dashed #8a6d3b !important;
+	background:#faf2cc !important;
+}
+.dropazing-list{
+	padding:10px;
+	background:#f5f5f5;
+	border:1px solid #ccc;
+	border-radius:8px;
+	margin-bottom:10px;
+}
+.dropazing-list .progress-bar{
+	margin-bottom:10px;
+	border-radius:5px;
+}
+.dropazing-list .file-description{
+	font-size:1.2em;
+	color:#333;
+}
+.dropazing-list .disabled .file-description{
+	color:#999;
+}
+.dropazing-list .disabled .total{
+	display:none;
+}
+.dropazing-list .total{
+	width:100%;
+	height:20%;
+	background:#ccc;
+	position:relative;
+}
+.dropazing-list .total a{
+	position:absolute;
+	top:0;
+	right:0;
+	line-height:20px;
+	width:20px;
+	background:none;
+	color:#fff;
+	text-decoration:none;
+	text-align:center;
+	font-size:1.2em;
+}
+.dropazing-list .total a:hover{
+	background:#c30;
+}
+.dropazing-list .loaded{
+	width:0%;
+	background:#fc0;
+	line-height:20px;
+	padding:0 10px;
+	box-sizing:border-box;
+	font-size:1.2em;
+}
+.dropazing-list .loaded.success{
+	background:#3C0;
+}
+.dropazing-list .loaded.error{
+	color:#fff;
+	background:#C30;
+}
+.dropazing-list .response{
+	font-size:1.1em;
+	color:#666;
+	margin-bottom:10px;
+	padding:5px 10px;
+	box-sizing:border-box;
+	background:#fff;
+	border:1px solid #ccc;
+}

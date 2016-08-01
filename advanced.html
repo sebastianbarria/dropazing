@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Dropazing advanced version</title>
+	<link rel="stylesheet" type="text/css" media="all" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" media="all" href="css/dropazing.css">
+	<script src="js/mootools_1.4.5.js"></script>
+	<script src="js/dropazing.js"></script>
+</head>
+<body>
+	<div id="content">
+		<p id="preloader" style="display:none;" align="center">
+			Please wait
+		</p>
+		
+		<h2>Upload your image</h2>
+		<div class="dropazing" data-vars="{ uploadUrl: 'ajax/upload_advanced.php', postUploadName: 'image', allowedExtensions: 'jpg,jpeg,gif,png', maxFilesAllowed: 10, aditionalVars: { section: 'demo' }, onSuccess: success, onError: error, onDrop: drop, onFinish: finish }">
+			Drop your file here (jpg, gif or png)
+		</div>
+		
+		<br><br>
+		
+		<h2>Upload your text files</h2>
+		<div class="dropazing" data-vars="{ uploadUrl: 'ajax/upload_advanced.php', postUploadName: 'image', allowedExtensions: 'txt', maxFilesAllowed: 3, aditionalVars: { section: 'demo' }, onSuccess: success, onError: error, onDrop: drop, onFinish: finish }">
+			Drop your files here (only txt, max 3 files)
+		</div>
+		<p align="center">
+			<a href="index.html">View simple example</a>
+		</p>
+	</div>
+	<script>
+	function success(response,loadBar){
+		//do your stuff here and then return the plain message to show
+		
+		response=JSON.decode(response);
+
+		//the success means the ajax recieved a response (if there was a problem processing the file inside the PHP, dropazing wouldn't know)
+		//so, to fix that, we will check the response.status variable (sent from PHP as a reponse message) and it's setted on and error value we will add the error class to the loadBar to simulate an error
+		if(response.status==0){
+			loadBar.addClass("error");
+		}
+		
+		return response.message;
+	}
+	
+	function error(response){
+		//do your stuff here and then return the plain message to show
+		//this is an example of how to translate the error messages
+		var messages=[];
+		messages["File extension not allowed"]="Extensión no permitida";
+		messages["Only 1 file(s) allowed to upload"]="Sólo se permite subir 1 archivo";
+		//alert(messages[response]);
+		alert(response);
+	}
+	
+	function drop(){
+		$('preloader').style.display="block";
+	}
+	
+	function finish(){
+		$('preloader').style.display="none";
+	}
+	</script>
+</body>
+</html>
