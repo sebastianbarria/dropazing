@@ -106,7 +106,7 @@ var dropazing={
 					var tempIndex=this.uploadQueue.length;
 					
 					//allowedExtensions
-					if(this.vars.allowedExtensions.contains(files[i].name.split('.').pop()) || !this.vars.allowedExtensions.length){
+					if(this.vars.allowedExtensions.contains(files[i].name.split('.').pop().toLowerCase()) || !this.vars.allowedExtensions.length){
 						this.dropped++;
 						files[i].status="pending";
 						this.uploadQueue.push(files[i]);
